@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "98ba3b23-3e91-47ad-8adb-2b13a6851ffc",
+		"name": "DLAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30976939"
+	},
+	"item": [
+		{
+			"name": "DELETION",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ji-dev-app.va.jaggaer.com/apps/Router/ShoppingDashboardUserDetails?tmstmp=1691074245531",
+					"protocol": "https",
+					"host": [
+						"ji-dev-app",
+						"va",
+						"jaggaer",
+						"com"
+					],
+					"path": [
+						"apps",
+						"Router",
+						"ShoppingDashboardUserDetails"
+					],
+					"query": [
+						{
+							"key": "tmstmp",
+							"value": "1691074245531"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
