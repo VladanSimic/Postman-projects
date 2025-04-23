@@ -1,0 +1,916 @@
+{
+	"info": {
+		"_postman_id": "b1495c53-997f-4ab7-86c8-7c0df9eede95",
+		"name": "DLAS-BDE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30976939"
+	},
+	"item": [
+		{
+			"name": "BDE-Dataset",
+			"item": [
+				{
+					"name": "getAllGlobal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/datasets",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"datasets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllByApp",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/datasets/app/JI",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"datasets",
+								"app",
+								"JI"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllByTenant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/datasets/custom?includeGlobal=false",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"datasets",
+								"custom"
+							],
+							"query": [
+								{
+									"key": "includeGlobal",
+									"value": "false"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCustomByTenant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/datasets/custom?includeGlobal=false",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"datasets",
+								"custom"
+							],
+							"query": [
+								{
+									"key": "includeGlobal",
+									"value": "false"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/datasets/Id?includeGlobal=false",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"datasets",
+								"Id"
+							],
+							"query": [
+								{
+									"key": "includeGlobal",
+									"value": "false"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCustomDataset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/datasets/custom?includeGlobal=false",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"datasets",
+								"custom"
+							],
+							"query": [
+								{
+									"key": "includeGlobal",
+									"value": "false"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "renameCustomDataset",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/datasets/tenant/:tenant/custom/:ds_pk?name=renamedCustomDataset",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"datasets",
+								"tenant",
+								":tenant",
+								"custom",
+								":ds_pk"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "renamedCustomDataset"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								},
+								{
+									"key": "ds_pk",
+									"value": "239"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCustomDataset",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/datasets/tenant/:tenant/custom/:ds_pk",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"datasets",
+								"tenant",
+								":tenant",
+								"custom",
+								":ds_pk"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "renamedCustomDataset1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								},
+								{
+									"key": "ds_pk",
+									"value": "238"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BDE-Customer",
+			"item": [
+				{
+					"name": "postCustomer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"sftp_host\":\"vlasimic@jaggaer.com\", \"sftp_port\":22, \"sftp_user\": \"110adm\", \"sftp_pass\": \"VlaSimic\", \"sftp_directory\": \"tom\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/configs/:dest",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"configs",
+								":dest"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "VLADAN_TEST_18"
+								},
+								{
+									"key": "dest",
+									"value": "SFTP"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllByCustomer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/configs",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"configs"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "TPB01001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByCustomerAndDestination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/configs/:dest",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"configs",
+								":dest"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "TPB1234"
+								},
+								{
+									"key": "dest",
+									"value": "SFTP"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putCustomer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"sftp_host\":\"vlasimic_12@jaggaer.com\", \"sftp_port\":22, \"sftp_user\": \"110adm\", \"sftp_pass\": \"VlaSimic\", \"sftp_directory\": \"tom\"}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/configs/:dest?quotes=false",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"configs",
+								":dest"
+							],
+							"query": [
+								{
+									"key": "quotes",
+									"value": "false"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "VLADAN_TEST_178555"
+								},
+								{
+									"key": "dest",
+									"value": "SFTP"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCustomer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/configs/:id",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"configs",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "VLADAN_TEST_15"
+								},
+								{
+									"key": "id",
+									"value": "39"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BDE-Request",
+			"item": [
+				{
+					"name": "getByCustomer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"notificationType\":\"SUCCESS\", \r\n\"notificationAddress\":\"vlasimic@jaggaer.com;vlasimic_11@jaggaer.com;vlasimic_123@jaggaer.com\",\r\n\"isActive\": true, \r\n\"isIncremental\": true,\r\n\"runDaily\": true, \r\n\"runSunday\": false, \r\n\"runMonday\":false, \r\n\"runTuesday\":false, \r\n\"runWednesday\":false, \r\n\"runThursday\":false, \r\n\"runFriday\":false, \r\n\"runSaturday\":false, \r\n\"runLastOfMonth\":false}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/requests",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"requests"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"notificationType\":\"SUCCESS\", \n\"notificationAddress\":\"vladan_1@jaggaer.com;vladan_2@jaggaer.com;vladan_3@jaggaer.com;vladan_4@jaggaer.com;vladan_5@jaggaer.com;vladan_6@jaggaer.com;vladan_7@jaggaer.com;vladan_8@jaggaer.com;vladan_9@jaggaer.com;vladan_10@jaggaer.com\",\n\"isActive\": true, \n\"runDaily\": true, \n\"runSunday\": false, \n\"runMonday\":false, \n\"runTuesday\":false, \n\"runWednesday\":false, \n\"runThursday\":false, \n\"runFriday\":false, \n\"runSaturday\":false, \n\"runLastOfMonth\":false}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/requests/:app/:dataset?output=S3",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"requests",
+								":app",
+								":dataset"
+							],
+							"query": [
+								{
+									"key": "output",
+									"value": "S3"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000091"
+								},
+								{
+									"key": "app",
+									"value": "JA"
+								},
+								{
+									"key": "dataset",
+									"value": "JA Auction"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putRequest",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"notificationType\":\"FAILURE\", \n\"notificationAddress\":\"vladan_1@jaggaer.com;vladan_2@jaggaer.com;vladan_3@jaggaer.com;vladan_4@jaggaer.com;vladan_5@jaggaer.com;vladan_6@jaggaer.com;vladan_7@jaggaer.com;vladan_8@jaggaer.com;vladan_9@jaggaer.com;vladan_10jaggaer.com\",\n\"isActive\": true, \n\"runDaily\": true, \n\"runSunday\": false, \n\"runMonday\":false, \n\"runTuesday\":false, \n\"runWednesday\":false, \n\"runThursday\":false, \n\"runFriday\":false, \n\"runSaturday\":false, \n\"runLastOfMonth\":false}"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/requests/:app/:dataset?output=S3",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"requests",
+								":app",
+								":dataset"
+							],
+							"query": [
+								{
+									"key": "output",
+									"value": "S3"
+								}
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000002"
+								},
+								{
+									"key": "app",
+									"value": "JA"
+								},
+								{
+									"key": "dataset",
+									"value": "JA Auction"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRequest",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/:tenant/export/requests/:id",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								":tenant",
+								"export",
+								"requests",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "BA242ABIZ01000"
+								},
+								{
+									"key": "id",
+									"value": "1427"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BDE-CustomDatasetView",
+			"item": [
+				{
+					"name": "getContents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/datasets/tenant/:tenant/custom/:ds_pk/contents",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"datasets",
+								"tenant",
+								":tenant",
+								"custom",
+								":ds_pk",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								},
+								{
+									"key": "ds_pk",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateContents",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"viewName\": \"dsm_view_1\"},{\"viewName\": \"dsm_view_2\"},{\"viewName\": \"dsm_view_3\"}]"
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/datasets/tenant/:tenant/custom/:ds_pk/contents",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"datasets",
+								"tenant",
+								":tenant",
+								"custom",
+								":ds_pk",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								},
+								{
+									"key": "ds_pk",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteContents",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/datasets/tenant/:tenant/custom/:ds_pk/contents",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"datasets",
+								"tenant",
+								":tenant",
+								"custom",
+								":ds_pk",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "tenant",
+									"value": "42020000001"
+								},
+								{
+									"key": "ds_pk",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BDE-ConnectionTest",
+			"item": [
+				{
+					"name": "testSFTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/configs/testSFTP?sftp_host=vedevas05.corp.jaggaer.com&sftp_user=110adm&sftp_pass=110adm&sftp_dir=.&sftp_port=22",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"configs",
+								"testSFTP"
+							],
+							"query": [
+								{
+									"key": "sftp_host",
+									"value": "vedevas05.corp.jaggaer.com"
+								},
+								{
+									"key": "sftp_user",
+									"value": "110adm"
+								},
+								{
+									"key": "sftp_pass",
+									"value": "110adm"
+								},
+								{
+									"key": "sftp_dir",
+									"value": "."
+								},
+								{
+									"key": "sftp_port",
+									"value": "22"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "testS3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{host}}{{dlas-port}}/dlas/export/configs/testS3?s3_arn=arn:aws:iam::663338064878:role/sandbox_dml_rw_s3_role&s3_path=s3://dml-sandbox-eu-central-bulk-data-export",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}{{dlas-port}}"
+							],
+							"path": [
+								"dlas",
+								"export",
+								"configs",
+								"testS3"
+							],
+							"query": [
+								{
+									"key": "s3_arn",
+									"value": "arn:aws:iam::663338064878:role/sandbox_dml_rw_s3_role"
+								},
+								{
+									"key": "s3_path",
+									"value": "s3://dml-sandbox-eu-central-bulk-data-export"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{j1p-bearer-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"run getToken\");",
+					"var keycloakHostName = pm.environment.get(\"keycloakHostName\");",
+					"console.log(\"keycloakHostName => \" + keycloakHostName);",
+					"console.log(\"client_id => \" + pm.environment.get(\"client_id\"));",
+					"console.log(\"client_secret => \" + pm.environment.get(\"client_secret\"));",
+					"",
+					"const getTokenRequest = {",
+					"    url: \"https://\" + keycloakHostName + \"/auth/realms/j1p-apps/protocol/openid-connect/token\",",
+					"    method: 'POST',",
+					"    header: {",
+					"        ",
+					"    },",
+					"    body: {",
+					"        mode: 'urlencoded',",
+					"        urlencoded: [",
+					"            {key: \"client_id\", value: pm.environment.get(\"client_id\")}, ",
+					"            {key: \"client_secret\", value: pm.environment.get(\"client_secret\")}, ",
+					"            {key: \"grant_type\",value: \"client_credentials\"}",
+					"        ]",
+					"    }",
+					"};",
+					"    ",
+					"        ",
+					"    ",
+					"pm.sendRequest(getTokenRequest, function(err, res) {",
+					"",
+					"  ",
+					"    if (err!=null ) {",
+					"        console.log(\"getTokenRequest  failed:\");",
+					"        console.log(err);",
+					"        throw new Error(\"getTokenRequest failed\");",
+					"    }",
+					"    else{",
+					"        ",
+					"       ",
+					"        var responseBody = (res.stream);",
+					"        console.log(\"response=>\"+responseBody);",
+					"        if(responseBody.length == 0){",
+					"            console.log(\"Empty reponse\");",
+					"            pm.environment.set(\"jintToken\", \"\");",
+					"            throw new Error(\"getTokenRequest failed\");",
+					"        }",
+					"        console.log(\"getTokenRequest succeeded!\");",
+					"        var jsonData = JSON.parse(responseBody);",
+					"        pm.environment.set(\"j1p-bearer-token\",  jsonData.access_token);",
+					"",
+					"    }",
+					"});",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
